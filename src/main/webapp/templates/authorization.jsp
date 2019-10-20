@@ -10,7 +10,7 @@
     <br><br>
     Password: <input name="password" />
     <br><br>
-    <input type="submit" value="Submit" />
+    <input type="submit" value="Login" />
     <br><br>
     <a href="http://localhost:8088/registration">Create account if you don not have it</a>
 </form>

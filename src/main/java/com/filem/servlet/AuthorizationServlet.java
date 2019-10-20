@@ -24,6 +24,8 @@ public class AuthorizationServlet extends HttpServlet {
         String password = request.getParameter("password");
         String href = "http://localhost:8088/?path=D:\\" + login;
 
+        System.out.println("auth post");
+
         UserProfile userProfile = AccountService.getUserByLogin(login);
 
         if (userProfile == null || !userProfile.getPass().equals(password)){
@@ -35,6 +37,15 @@ public class AuthorizationServlet extends HttpServlet {
         AccountService.addSession(sessionId, userProfile);
 
         response.sendRedirect(href);
+    }
+
+    public void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException, ServletException {
+
+        request.getRequestDispatcher("/templates/authorization.jsp").forward(request, response);
+        System.out.println("auth get");
+
+
     }
 
 

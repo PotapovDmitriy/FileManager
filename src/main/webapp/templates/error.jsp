@@ -5,7 +5,7 @@
         <title></title>
     </head>
     <body>
-        <div>Ошибка в параметре "path". Используйте параметр "path" в адресной строке.
+        <div>check path
         </div>
     </body>
 </html>

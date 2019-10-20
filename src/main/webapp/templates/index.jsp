@@ -12,9 +12,11 @@
 <html>
     <head>
         <meta charset='UTF-8' />
-        <title></title>
+        <title>File manager</title>
+
     </head>
     <body>
+        <div class=back>
             <%
                 out.println("<div class='back'>");
                 if(parentPath != null){
@@ -27,6 +29,7 @@
                 }
             out.println("</div><hr/>");
             %>
+        </div>
         <div class='files'>
             <div class='dir'>
                 <%

@@ -49,7 +49,7 @@ public class FileServlet extends HttpServlet {
             return;
         }
         if (path == null) {
-            getServletContext().getRequestDispatcher("/templates/error.jsp").forward(req, resp);
+            getServletContext().getRequestDispatcher("/templates/erorrDir.jsp").forward(req, resp);
         } else {
 
             System.out.println(path);
@@ -61,7 +61,7 @@ public class FileServlet extends HttpServlet {
                 req.setAttribute("parentsPath", filesListService.getPath());
                 getServletContext().getRequestDispatcher("/templates/index.jsp").forward(req, resp);
             } else {
-                getServletContext().getRequestDispatcher("/templates/error.jsp").forward(req, resp);
+                getServletContext().getRequestDispatcher("/templates/erorrDir.jsp").forward(req, resp);
             }
         }
 

@@ -1,9 +1,9 @@
-package com.filem.tech;
+package com.filem.service;
 
 import java.io.File;
 import java.util.ArrayList;
 
-public class FilesList {
+public class FilesListService {
     private ArrayList<File> Dirs = new ArrayList<>();
     private ArrayList<File> Files = new ArrayList<>();
     private String ParentPath;

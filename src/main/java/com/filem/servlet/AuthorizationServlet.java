@@ -9,7 +9,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.File;
 import java.io.IOException;
 
 @WebServlet("/authorization")
@@ -20,15 +19,13 @@ public class AuthorizationServlet extends HttpServlet {
         String login = request.getParameter("login");
         String password = request.getParameter("password");
         AuthorizationService auth = new AuthorizationService();
-        UserProfile user = auth.Login(login, password);
+        UserProfile user = auth.login(login, password);
 
-        String href = "http://localhost:8088/?path=D:\\" + login;
+        String href = "http://localhost:8088/?path=E:\\" + login;
 
         System.out.println("auth post");
 
-
-
-        if (user == null ){
+        if (user == null) {
             request.getRequestDispatcher("/templates/registration.jsp").forward(request, response);
             return;
         }
@@ -44,8 +41,6 @@ public class AuthorizationServlet extends HttpServlet {
 
         request.getRequestDispatcher("/templates/authorization.jsp").forward(request, response);
         System.out.println("auth get");
-
-
     }
 
     public void doDelete(HttpServletRequest request, HttpServletResponse response)

@@ -27,9 +27,11 @@ public class RegistrationServlet extends HttpServlet {
         String email = request.getParameter("email");
         System.out.println("reg Post");
         RegisterService reg = new RegisterService();
-        UserProfile user = reg.Register(login, password, email);
+
+        UserProfile user = reg.Register(  login, password, email);
         if (user == null) {
             System.out.println("reg err");
+            response.sendRedirect(request.getContextPath() + "/authorization");
         } else {
             System.out.println(user.getLogin());
             AccountService.addNewUser(user);

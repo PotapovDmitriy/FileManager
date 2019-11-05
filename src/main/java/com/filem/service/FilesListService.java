@@ -20,23 +20,21 @@ public class FilesListService {
         return ParentPath;
     }
 
-    public boolean setLists(String path){
-        try{
+    public boolean setLists(String path) {
+        try {
             File file = new File(path);
-            File[] arrFiles  = new File(path).listFiles();
+            File[] arrFiles = new File(path).listFiles();
             ParentPath = file.getParent();
 
-            for (File f: arrFiles ){
-                 if (f.isFile()){
-                     Files.add(f);
-                 }
-                 else{
-                     Dirs.add(f);
-                 }
+            for (File f : arrFiles) {
+                if (f.isFile()) {
+                    Files.add(f);
+                } else {
+                    Dirs.add(f);
+                }
             }
             return true;
-        }
-        catch(NullPointerException excep){
+        } catch (NullPointerException excep) {
             return false;
         }
     }

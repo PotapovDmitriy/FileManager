@@ -20,21 +20,19 @@ public class FileServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String sessionId = req.getSession().getId();
         UserProfile userProfile = AccountService.getUserBySessionId(sessionId);
-
-
-        String sql = "SELECT COUNT(*) FROM userprofile ";
-
-        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:myDataBase.db")) {
-            try (Statement st = conn.createStatement();
-                    ResultSet rs = st.executeQuery(sql)) {
-
-                int i = rs.getInt(1);
-                System.out.println(i);
-
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+//        String sql = "SELECT COUNT(*) FROM userprofile ";
+//
+//        try (Connection conn = DriverManager.getConnection("jdbc:sqlite:myDataBase.db")) {
+//            try (Statement st = conn.createStatement();
+//                 ResultSet rs = st.executeQuery(sql)) {
+//
+//                int i = rs.getInt(1);
+//                System.out.println(i);
+//
+//            }
+//        } catch (Exception ex) {
+//            System.out.println(ex.getMessage());
+//        }
 
 
         if (sessionId == null || userProfile == null) {
@@ -64,6 +62,5 @@ public class FileServlet extends HttpServlet {
                 getServletContext().getRequestDispatcher("/templates/erorrDir.jsp").forward(req, resp);
             }
         }
-
     }
 }

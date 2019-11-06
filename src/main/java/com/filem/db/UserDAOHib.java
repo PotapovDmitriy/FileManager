@@ -5,13 +5,11 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class UserDAOHib implements UserDAO {
-    public UserProfile findById(int id) {
-        return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(UserProfile.class, id);
-    }
+
 
     @Override
-    public void addUser(String login, String mail, String pass) {
-        UserProfile user = new UserProfile( login, pass, mail);
+    public void addUser(UserProfile user) {
+
         Session session = HibernateSessionFactoryUtil.getSessionFactory().openSession();
         Transaction transaction = session.beginTransaction();
         session.save(user);
@@ -21,13 +19,14 @@ public class UserDAOHib implements UserDAO {
 
     @Override
     public Boolean containsLogin(String login) {
-        if ( HibernateSessionFactoryUtil.getSessionFactory().openSession().get(UserProfile.class, login) != null)
+        if (HibernateSessionFactoryUtil.getSessionFactory().openSession().get(UserProfile.class, login) != null)
             return true;
         return false;
     }
 
     @Override
-    public UserProfile getUser(String login) {
+    public UserProfile findByLogin(String login) {
+
         return HibernateSessionFactoryUtil.getSessionFactory().openSession().get(UserProfile.class, login);
     }
 }

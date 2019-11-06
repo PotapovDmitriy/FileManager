@@ -43,7 +43,7 @@
 //    }
 //
 //    @Override
-//    public UserProfile getUser(String login) {
+//    public UserProfile findByLogin(String login) {
 //        String sql = "SELECT * FROM userprofile WHERE login = '" + login + "';";
 //
 //        try (Connection conn = DriverManager.getConnection(url);

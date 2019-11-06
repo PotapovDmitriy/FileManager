@@ -1,21 +1,17 @@
 package com.filem.accounts;
 
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
 @Table(name = "users")
 public class UserProfile {
 
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column (name = "id")
-    public int getId() {
-        return id;
-    }
-    private int id;
-
-
     @Column(name = "login")
     private String login;
     @Column(name = "password")
@@ -23,16 +19,15 @@ public class UserProfile {
     @Column(name = "email")
     private String email;
 
-    public UserProfile() {
-    }
 
-    public UserProfile( String login, String password, String email) {
-//        this.id = id;
+    public UserProfile(){}
+
+
+    public UserProfile(String login, String password, String email) {
         this.login = login;
         this.password = password;
         this.email = email;
     }
-
 
 
     public String getLogin() {
@@ -45,10 +40,6 @@ public class UserProfile {
 
     public String getEmail() {
         return email;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setLogin(String login) {

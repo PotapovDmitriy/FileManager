@@ -9,13 +9,13 @@ import java.io.File;
 public class RegisterService {
     public UserProfile Register( String login, String password, String email) {
         UserDAOHib base = new UserDAOHib();
-        UserProfile user = new UserProfile(login, password, email);
-        UserProfile user1 = base.findByLogin(login);
+
+
         if (!base.containsLogin(login)) {
-//            UserProfile user = new UserProfile(login, password, email);
+            UserProfile user = new UserProfile(login, password, email);
             base.addUser(user);
             System.out.println(login);
-            File folder = new File("E:\\" + login);
+            File folder = new File("H:\\" + login);
             if (!folder.exists()) {
                 folder.mkdirs();
             }

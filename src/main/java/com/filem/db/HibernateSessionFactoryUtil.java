@@ -19,7 +19,7 @@ public class HibernateSessionFactoryUtil {
                 sessionFactory = configuration.buildSessionFactory();
 
             } catch (Exception e) {
-                System.out.println("Исключение!" + e);
+                System.out.println("EXCEPTION!!!   " + e);
             }
         }
         return sessionFactory;

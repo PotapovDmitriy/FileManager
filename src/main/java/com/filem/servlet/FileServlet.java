@@ -29,7 +29,7 @@ public class FileServlet extends HttpServlet {
             String login = userProfile.getLogin();
 
             if (!path.contains(login)) {
-                resp.sendRedirect("http://localhost:8088/?path=D:\\" + login);
+                resp.sendRedirect("http://localhost:8088/?path=H:\\" + login);
                 return;
             }
             if (path == null) {

@@ -1,26 +1,35 @@
 package com.filem.accounts;
 
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
-@Table(name = "users")
+@Table(name = "users1")
 public class UserProfile {
 
 
     @Id
-    @Column(name = "login")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    @Column(name = "login", length = 25)
     private String login;
-    @Column(name = "password")
+    @Column(name = "password", length = 25)
     private String password;
-    @Column(name = "email")
+    @Column(name = "email", length = 25)
     private String email;
 
 
-    public UserProfile(){}
+    public UserProfile() {
+    }
 
 
     public UserProfile(String login, String password, String email) {

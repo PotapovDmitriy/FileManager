@@ -7,8 +7,9 @@ import com.filem.db.UserDAOHib;
 public class AuthorizationService {
     public UserProfile login(String login, String pass) {
         UserDAOHib base = new UserDAOHib();
-        UserProfile user = base.findByLogin(login);
+
         if (base.containsLogin(login)) {
+            UserProfile user = base.findByLogin(login);
             if (user.getPassword().equals(pass)) {
                 return user;
             } else {

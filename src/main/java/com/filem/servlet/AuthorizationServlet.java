@@ -21,7 +21,7 @@ public class AuthorizationServlet extends HttpServlet {
         AuthorizationService auth = new AuthorizationService();
         UserProfile user = auth.login(login, password);
 
-        String href = "http://localhost:8088/?path=D:\\" + login;
+        String href = "http://localhost:8088/?path=H:\\" + login;
 
         System.out.println("auth post");
 
